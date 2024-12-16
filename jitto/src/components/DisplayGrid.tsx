@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState} from 'react'
+import React, { memo, useEffect, useLayoutEffect, useState} from 'react'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
@@ -11,8 +11,16 @@ import simulatorGrid from "../grid";
 
 interface props {
   grid : simulatorGrid; 
-  updater : any;
+  updater : React.DispatchWithoutAction;
 }
+
+
+// const memoCell = memo(function Cell({row, col, grid} : cellProps) {
+//   return (
+//     // <p>test</p>
+//     <Cell row = {row} col = {col} grid = {grid} />
+//   );
+// });
 
 export default function DisplayGrid({grid, updater}: props){
   // board.map((row, i) => (
@@ -23,11 +31,20 @@ export default function DisplayGrid({grid, updater}: props){
   //     </div>
   //   ))}
   // </div>
-  console.log("render grid");
+  console.log(`grid length ${grid.getLength()}`);
+  
+  const onClick = (row : number) => (col : number) => () => {
+    grid.flip(row, col);
+    // console.log("flipping");
+    updater();
+  }
   const listItems = grid.getGrid().map((row, i) => (
     <Box key = {i}>
       {row.map((cell, j) => (
-        <Cell row = {i} col = {j} grid = {grid} />
+        // <memoCell row = {i} col = {j} grid = {grid} />
+        <Box onClick={onClick(i)(j)}>
+          <Cell row = {i} col = {j} gridVal = {grid.at(i,j)} />        
+        </Box>
         // <span>test</span>
       ))}
     </Box>
