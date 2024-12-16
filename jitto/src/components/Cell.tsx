@@ -16,15 +16,15 @@ interface props {
 
 const Cell = ({row, col, gridVal} : props) => {
   // console.log(`rendered ${row}:${col}`);
-  
+  let color : string = gridVal ? "black" : "red";
   return (
-    <Grid height = {5} width = {5} bgcolor={gridVal ? "black" : "red"}>
+    <div className="cell" style={{backgroundColor : color}}>
       {/* <Box bgcolor={(Math.random() < 0.5) ? "black" : "red"} height={5} width={5}> */}
       {/* <Box bgcolor={gridVal ? "black" : "red"} height={5} width={5}> */}
         {/* <p>{grid.at(row, col) ? "1" : "0"}.</p> */}
         {/* <Typography margin={0}>{grid.at(row, col) ? "1" : "0"}</Typography> */}
       {/* </Box> */}
-    </Grid>
+    </div>
   )
 }
 

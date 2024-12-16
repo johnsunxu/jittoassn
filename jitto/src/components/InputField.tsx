@@ -9,22 +9,23 @@ import Grid from '@mui/material/Grid2';
 import Button from '@mui/material/Button';
 import simulatorGrid from "../grid";
 
+
 interface props { 
-  isSimming : [boolean, React.Dispatch<React.SetStateAction<boolean>>];
+  fieldName : string;
 }
 
-export default function StopButton({isSimming} : props) : JSX.Element{
-  const onClick = () => {
-    // grid.update();
-    // updater();
-    isSimming[1](false);
-
+export default function InputField({fieldName} : props) : JSX.Element{
+  const onInput = () => {
+    return;
   }
 
   return (
-    <button onClick={onClick} disabled={!isSimming[0]}>
-      Stop Sim
-    </button>
+    <>
+      <label>{fieldName}</label>
+      <input onInput={onInput} disabled = {false}>
+        Reset Sim
+      </input>  
+    </>
     // <p>{row},{col}</p>
   )
 }

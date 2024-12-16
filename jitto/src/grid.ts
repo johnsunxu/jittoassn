@@ -13,6 +13,7 @@ export default class Grid {
     // fourAdj 
     grid: boolean[][]; 
     updateCounter : number[][];
+    countHistory : number[] = [];
 
 
     constructor(length : number = 50){
@@ -57,6 +58,10 @@ export default class Grid {
         return count;    
     }
 
+    getCountHistory() : number[] {
+        return this.countHistory;
+    }
+
     update() : void { 
         for (var i : number = 0; i < this.grid.length ; i ++ ){
             for (var j : number = 0; j < this.grid[0].length ; j++){
@@ -84,6 +89,7 @@ export default class Grid {
                 }
             }
         }
+        this.countHistory.push(this.getCount());
     }
 
     numAdjacent(row : number, col : number) : number { 
@@ -124,6 +130,7 @@ export default class Grid {
                 this.updateCounter[i][j] = 0; 
             }
         }
+        this.countHistory=[];
     }
 
     setLifeSpan(newVal : number) : void {

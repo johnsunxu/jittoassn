@@ -5,6 +5,11 @@
   text-align: center;
 }
 
+.cell {
+  height: 5px; 
+  width: 5px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -16,6 +21,20 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.stackVertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stackHorizontal {
+  display: flex; 
+  flex-direction: row; 
+  align-items: center; 
+  justify-content: center;
 }
 
 @keyframes logo-spin {

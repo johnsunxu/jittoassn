@@ -27,6 +27,9 @@ export default function StartButton({grid, updater, config, isSimming} : props) 
         grid.update();
         updater();  
       }
+      if (grid.getCount() === 0){
+        isSimming[1](false);
+      }
     }, 1000*config["updateTime"][0]);
     return () => clearInterval(interval);
   }, [isSimming]);
@@ -39,9 +42,9 @@ export default function StartButton({grid, updater, config, isSimming} : props) 
   }
 
   return (
-    <Button onClick={onClick} disabled={isSimming[0]}>
+    <button onClick={onClick} disabled={isSimming[0]}>
       Start Sim
-    </Button>
+    </button>
     // <p>{row},{col}</p>
   )
 }

@@ -1,10 +1,10 @@
 import React, { memo, useEffect, useLayoutEffect, useState} from 'react'
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Card from '@mui/material/Card';
-import CardActionArea from '@mui/material/CardActionArea';
-import CardMedia from '@mui/material/CardMedia';
-import Stack from '@mui/material/Stack';
+// // import Box from '@mui/material/Box';
+// import Typography from '@mui/material/Typography';
+// import Card from '@mui/material/Card';
+// import CardActionArea from '@mui/material/CardActionArea';
+// import CardMedia from '@mui/material/CardMedia';
+// import Stack from '@mui/material/Stack';
 import Cell from "./cell";
 import Grid from "@mui/material/Grid2";
 import simulatorGrid from "../grid";
@@ -31,23 +31,22 @@ export default function DisplayGrid({grid, updater}: props){
   //     </div>
   //   ))}
   // </div>
-  console.log(`grid length ${grid.getLength()}`);
-  
+
   const onClick = (row : number) => (col : number) => () => {
     grid.flip(row, col);
     // console.log("flipping");
     updater();
   }
   const listItems = grid.getGrid().map((row, i) => (
-    <Box key = {i}>
+    <div className="stackHorizontal" key = {i}>
       {row.map((cell, j) => (
         // <memoCell row = {i} col = {j} grid = {grid} />
-        <Box onClick={onClick(i)(j)}>
+        <div  onClick={onClick(i)(j)}>
           <Cell row = {i} col = {j} gridVal = {grid.at(i,j)} />        
-        </Box>
+        </div>
         // <span>test</span>
       ))}
-    </Box>
+    </div>
   ));
   // let listItems : any[] = new Array(grid.getLength()); 
 
@@ -66,9 +65,12 @@ export default function DisplayGrid({grid, updater}: props){
 
 
     return (
-      <Grid container rowSpacing = {0} columnSpacing={0}>
+      <table>
         {listItems}
-      </Grid>
+      </table>
+      // <Grid container rowSpacing = {0} columnSpacing={0}>
+      //   {listItems}
+      // </Grid>
       // <Box>
       //   {listItems}
       // </Box>

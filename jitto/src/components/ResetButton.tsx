@@ -18,15 +18,16 @@ interface props {
 
 export default function ResetButton({grid, isSimming, updater} : props) : JSX.Element{
   const onClick = () => {
-    updater();
+    
     grid.reset();
+    updater();
 
   }
 
   return (
-    <Button onClick={onClick} disabled = {isSimming[0]}>
+    <button onClick={onClick} disabled = {isSimming[0]}>
       Reset Sim
-    </Button>
+    </button>
     // <p>{row},{col}</p>
   )
 }
