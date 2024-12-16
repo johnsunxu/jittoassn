@@ -1,13 +1,5 @@
 import {useReducer, useEffect, useLayoutEffect, useState} from 'react'
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Card from '@mui/material/Card';
-import CardActionArea from '@mui/material/CardActionArea';
-import CardMedia from '@mui/material/CardMedia';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid2';
-import Button from '@mui/material/Button';
-import simulatorGrid from "../grid";
+import simulatorGrid from "../Grid";
 
 interface props { 
   grid : simulatorGrid; 
@@ -27,7 +19,7 @@ export default function StartButton({grid, updater, config, isSimming} : props) 
         grid.update();
         updater();  
       }
-      if (grid.getCount() === 0){
+      if (grid.getCount()===0){
         isSimming[1](false);
       }
     }, 1000*config["updateTime"][0]);
@@ -43,7 +35,8 @@ export default function StartButton({grid, updater, config, isSimming} : props) 
 
   return (
     <button onClick={onClick} disabled={isSimming[0]}>
-      Start Sim
+      {/* Start */}
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z"/></svg>
     </button>
     // <p>{row},{col}</p>
   )

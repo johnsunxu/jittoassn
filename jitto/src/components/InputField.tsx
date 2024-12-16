@@ -7,7 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid2';
 import Button from '@mui/material/Button';
-import simulatorGrid from "../grid";
+import simulatorGrid from "../Grid";
 
 
 interface props { 

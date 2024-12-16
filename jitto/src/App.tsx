@@ -1,19 +1,15 @@
 import { useState, useEffect, useReducer } from 'react'
-// import Stack from '@mui/material/Stack';
-import Grid from "./grid";
+import Grid from "./Grid";
 import DisplayGrid from "./components/DisplayGrid";
 import Parameters from './components/Parameters';
 import StartButton from './components/StartButton';
 import StopButton from './components/StopButton';
 import ResetButton from './components/ResetButton';
-import Graph from './components/Graph';
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import './App.css'
 
 let grid = new Grid();
 
-grid.flip(0, 0);
+// grid.flip(0, 0);
 function App() {
   const [count, setCount] = useState(0);
   const [, updateGrid] = useReducer(x => x + 1, 0);
@@ -28,26 +24,24 @@ function App() {
     "adj2" : useState(2),
     "adj3" : useState(3), 
     "adj4" : useState(4), 
+
   }
   return (
     <>
       <div>
         <h1>Dish Simulator</h1>
-        {/* <Stack alignItems="center" spacing = {1}> */}
-        <div className="stackVertical">
+        <div className="main-container">
           <Parameters grid={grid} config = {config} isSimming={[isSimming, setIsSimming]} updater = {updateGrid}></Parameters>
-          {/* <Graph grid={grid} ></Graph> */}
-          <div className="stackHorizontal">
+          <div className="simulator">
+            <DisplayGrid grid={grid} updater = {updateGrid}></DisplayGrid>
+            <div className="simulator-buttons">
             <StartButton grid={grid} updater = {updateGrid} isSimming={[isSimming, setIsSimming]} config={config}></StartButton>
             <StopButton isSimming={[isSimming, setIsSimming]}></StopButton>
             <ResetButton grid={grid} updater = {updateGrid} isSimming={[isSimming, setIsSimming]}></ResetButton>
+            </div>
           </div>
-          <DisplayGrid grid={grid} updater = {updateGrid}></DisplayGrid>
-        {/* </Stack> */}
         </div>
       </div>
-
-
     </>
   )
 }

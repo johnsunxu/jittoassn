@@ -1,31 +1,17 @@
-import {useReducer, useEffect, useLayoutEffect, useState} from 'react'
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Card from '@mui/material/Card';
-import CardActionArea from '@mui/material/CardActionArea';
-import CardMedia from '@mui/material/CardMedia';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid2';
-import Button from '@mui/material/Button';
-import simulatorGrid from "../grid";
-
 interface props { 
   isSimming : [boolean, React.Dispatch<React.SetStateAction<boolean>>];
 }
 
 export default function StopButton({isSimming} : props) : JSX.Element{
   const onClick = () => {
-    // grid.update();
-    // updater();
     isSimming[1](false);
-
   }
 
   return (
     <button onClick={onClick} disabled={!isSimming[0]}>
-      Stop Sim
+      {/* Stop */}
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M320-320h320v-320H320v320ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
     </button>
-    // <p>{row},{col}</p>
   )
 }
 

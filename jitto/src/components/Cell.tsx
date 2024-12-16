@@ -1,30 +1,25 @@
 import {memo, useEffect, useLayoutEffect, useState} from 'react'
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Card from '@mui/material/Card';
-import CardActionArea from '@mui/material/CardActionArea';
-import CardMedia from '@mui/material/CardMedia';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid2';
-import simulatorGrid from "../grid";
 
 interface props { 
   row :number; 
   col : number; 
   gridVal : boolean; 
+  length : number;
 }
 
-const Cell = ({row, col, gridVal} : props) => {
+const Cell = ({row, col, gridVal, length} : props) => {
   // console.log(`rendered ${row}:${col}`);
-  let color : string = gridVal ? "black" : "red";
+  
   return (
-    <div className="cell" style={{backgroundColor : color}}>
-      {/* <Box bgcolor={(Math.random() < 0.5) ? "black" : "red"} height={5} width={5}> */}
-      {/* <Box bgcolor={gridVal ? "black" : "red"} height={5} width={5}> */}
-        {/* <p>{grid.at(row, col) ? "1" : "0"}.</p> */}
-        {/* <Typography margin={0}>{grid.at(row, col) ? "1" : "0"}</Typography> */}
-      {/* </Box> */}
-    </div>
+    <div
+    className="cell"
+    style={{
+      backgroundColor: gridVal ? "#4F9B64" : "#A397CE",
+      height: `${57/ length}vh`,
+      width: `${57/length}vh`, 
+    }}
+  >
+  </div>
   )
 }
 

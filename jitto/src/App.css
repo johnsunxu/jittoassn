@@ -5,11 +5,6 @@
   text-align: center;
 }
 
-.cell {
-  height: 5px; 
-  width: 5px;
-}
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -21,20 +16,6 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-.stackVertical {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.stackHorizontal {
-  display: flex; 
-  flex-direction: row; 
-  align-items: center; 
-  justify-content: center;
 }
 
 @keyframes logo-spin {
@@ -58,4 +39,52 @@
 
 .read-the-docs {
   color: #888;
+}
+
+input{
+  height: 2rem;
+  width: 12rem;
+  border: 0.5px solid rgb(208, 208, 208);
+  border-radius: 4px;
+}
+
+.main-container{
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+button{
+  background-color: rgb(30, 30, 35);
+  color: white;
+  width: 6rem;
+}
+
+button:active{
+  background-color: #888;
+}
+.row{
+  display: flex;
+  align-items: center;
+  gap: 4;
+}
+
+.simulator-buttons{
+  display: flex;
+  gap: 1rem;
+}
+.simulator{
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid{
+  margin: 0;
+  display: flex;
+  height: 57vh;
+  width: 57vh;
 }

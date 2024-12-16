@@ -5,9 +5,9 @@ import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardMedia from '@mui/material/CardMedia';
 import Stack from '@mui/material/Stack';
-import Cell from "./cell";
+import Cell from "./Cell";
 import Grid from "@mui/material/Grid2";
-import simulatorGrid from "../grid";
+import simulatorGrid from "../Grid";
 import { LineChart } from '@mui/x-charts/LineChart';
 
 
